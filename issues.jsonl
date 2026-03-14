@@ -1,0 +1,13 @@
+{"id": "TOUCH43B-1", "title": "Create platformio.ini and deploy.sh", "description": "Build config for RP2350B with earlephilhower core and deploy script", "status": "done"}
+{"id": "TOUCH43B-2", "title": "Port BSP I2C driver", "description": "bsp_i2c.h/.c — I2C1 on pins 6/7 at 400kHz for touch controller", "status": "done"}
+{"id": "TOUCH43B-3", "title": "Port DMA channel IRQ helper", "description": "bsp_dma_channel_irq.h/.c — IRQ1 multiplexer for DMA completion callbacks", "status": "done"}
+{"id": "TOUCH43B-4", "title": "Port PIO RGB display driver", "description": "pio_rgb.h/.c/.pio — PIO assembly + driver using pio1 (sync) and pio2 (data) with DMA", "status": "done"}
+{"id": "TOUCH43B-5", "title": "Port ST7262 LCD driver", "description": "bsp_st7262.h/.c — LCD init, brightness PWM on pin 40, depends on pio_rgb and dma_channel_irq", "status": "done"}
+{"id": "TOUCH43B-6", "title": "Port PSRAM allocator", "description": "psramlib/ — TLSF allocator + PSRAM QSPI init on pin 47, provides rp_mem_malloc for framebuffer", "status": "done"}
+{"id": "TOUCH43B-7", "title": "Port GT911 touch driver", "description": "bsp_gt911.h/.c — capacitive touch on I2C addr 0x5D, INT pin 16, RST pin 17", "status": "done"}
+{"id": "TOUCH43B-8", "title": "Port GUI_Paint drawing library", "description": "gui_paint/ — fonts + drawing primitives (lines, rectangles, circles, text)", "status": "done"}
+{"id": "TOUCH43B-9", "title": "Create hello world main.cpp", "description": "Wire all drivers together: init display, draw Hello World text + shapes, init touch", "status": "done"}
+{"id": "TOUCH43B-10", "title": "Build and verify display on hardware", "description": "First compile, flash, and test display on actual RP2350-Touch-LCD-4.3B board. Fixed PIO side 0 bug, switched to single-buffer mode.", "status": "done"}
+{"id": "TOUCH43B-11", "title": "Wire touch input into main loop", "description": "GT911 driver inits but loop() never calls touch read. Wire touch_if->read() and get_data() into loop, print coordinates to Serial.", "status": "done"}
+{"id": "TOUCH43B-12", "title": "Debug GT911 touch detection", "description": "GT911 init may be failing silently (10-retry timeout). Check serial output, verify I2C communication, ensure touch controller is responding.", "status": "done"}
+{"id": "TOUCH43B-13", "title": "Port screensaver demo from AMOLED project", "description": "Port 10-scene animated demo (ribbon, torus, plasma, metaballs, particles, wormhole, fractal, synthwave, swarm, kaleidoscope) from rp-2350-waveshare-touch-amoled-18. Adapt RGB565 byte order, replace AMOLED display calls with PIO RGB framebuffer, replace FT3168 touch with GT911, scale for 800x480.", "status": "in-progress"}
